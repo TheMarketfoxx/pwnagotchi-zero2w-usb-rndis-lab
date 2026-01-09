@@ -1,0 +1,20 @@
+## Goals
+- Headless provisioning (no screen / no keyboard)
+- USB gadget networking (RNDIS)
+- Secure SSH access with modern OS constraints
+
+## High-level workflow
+1. Flash image to microSD
+2. Enable USB gadget mode (`dwc2` + `g_ether`)
+3. Confirm Windows recognizes RNDIS adapter
+4. Validate IP + ARP + ping
+5. Establish SSH trust and login
+6. Validate services/logs
+
+## Key lesson
+“Link up” ≠ “working.” Validate each layer:
+- driver presence
+- IP addressing
+- ARP discovery
+- ICMP reachability
+- SSH auth + host key trust
