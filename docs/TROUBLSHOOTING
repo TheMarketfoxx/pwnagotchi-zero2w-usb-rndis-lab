@@ -1,0 +1,20 @@
+### C) Create `docs/TROUBLESHOOTING.md`
+Commit message: **`Add troubleshooting notes for RNDIS + first-boot SSH`**
+
+```md
+# TROUBLESHOOTING
+
+## Symptom: RNDIS adapter exists but no ping responses
+- Confirm correct USB port (DATA vs PWR)
+- Confirm data-capable cable
+- Confirm gadget mode config is correct
+- Confirm device finished first boot (wait 2–5 minutes)
+
+## Symptom: SSH reachable but password rejected / “valid user not set up”
+Modern images may block SSH until a user is created during onboarding.
+Solution: create user at first boot using the platform’s supported headless method
+(e.g., `userconf.txt` with a hashed password for Raspberry Pi OS–based images).
+
+## Symptom: Confusing subnet (192.168.137.x)
+Windows ICS may force 192.168.137.1; many Pwnagotchi USB workflows commonly use 10.0.0.1/10.0.0.2.
+Keep the repo documenting what you actually validated and stick to one scheme.
